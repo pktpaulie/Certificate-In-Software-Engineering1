@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container container-fluid" id="form_title">
+    <h2>GENQ KYC FORM</h2>
+</div>
+
+
+<div class="container container-fluid">
+    {% include 'messages.html' %}
+    <!-- using a custom form to capture user data and post it to the data base -->
+    <form action="{% url 'kyc' %}" method="POST" enctype="multipart/form-data">
+        <!-- including the csrf for security of the form data -->
+        {% csrf_token %}
+        <div class="title" id="sub_title">
+            <h4>BioData</h4>
+        </div> 
+        <div class="row">
+            <div class="col-md-6" id="col">
+                <input type="text" name="firstname" class="form-control" placeholder="Enter Your First Name" required>
+            </div>
+            <div class="col-md-6" id="col">
+                <input type="text" name="lastname" class="form-control" placeholder="Enter Your Last Name" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" id="col">
+                <input type="date" name="date_of_birth" class="form-control" placeholder="Enter Your Date of Birth" required>
+        
+            </div>
+            <div class="col-md-6" id="col">    
+                <select name="gender" class="form-control" aria-placeholder="Select Your Gender" required>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option> 
+            
+                </select>
+            </div>
+        </div>
+        <div class="title" id="sub_title">
+            <h4>Location</h4> 
+        </div> 
+        <div class="row">
+            <div class="col-md-6" id="col">
+                <select name="country" class="form-control" aria-placeholder="Select Your Country of Residence" required>
+                    <option value="uganda">Uganda</option>
+                    <option value="kenya">Kenya</option> 
+                    <option value="tanzania">Tanzania</option> 
+                    <option value="rwanda">Rwanda</option>  
+                    <option value="burundi">Burundi</option> 
+                </select>
+            </div>
+            <div class="col-md-6" id="col">
+                <input type="text" name="district" class="form-control" placeholder="Enter Your District here" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" id="col">
+                <input type="text" name="town" class="form-control" placeholder="Enter Your Town here" required>
+        
+            </div>
+            <div class="col-md-6" id="col">
+                <input type="text" name="zip_code" class="form-control" placeholder="Zip Code" required>
+            </div>
+        </div>    
+        <div  id="sub_title">
+            <h4>Contact and Address</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6" id="col">
+                <input type="number" name="phone_num1" class="form-control" placeholder="Phone Number 1" required>
+            </div>
+            <div class="col-md-6" id="col">
+                <input type="text" name="phone_num2" class="form-control" placeholder="Phone Number 2" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="col">
+                <input type="email" name="email" class="form-control" placeholder="Enter Your Email here" required>
+        
+            </div> 
+        </div>
+    </form>
+    <div class="">
+        <!-- <button type="submit" name="submit" id="my_btn" class="btn btn-warning btn-lg">Submit</button> -->
+        <input type="submit" name="Submit" id="my_btn" class="btn btn-outline-success">
+    </div>
+    <!-- Displaying flash messages for form submission -->
+<div class="container">
+    <div class="justify-content-center">
+        {% if submit %}
+            {% with messages='Successfully Submitted' %}
+                {% if messages %}
+                    <div id="flash_message" class="messages">{{ messages }}
+                    <button class="btn btn-outline-success btn-sm" id="msg_close_btn" onclick="hide('flash_message')">Close</button>
+                    </div>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

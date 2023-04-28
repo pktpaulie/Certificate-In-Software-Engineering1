@@ -1,0 +1,58 @@
+#my_btn{
+    float: right;
+    background-color: rgb(247, 141, 10);
+    border-color: rgb(247, 141, 10);
+    color: white;
+    width: 240px;
+}
+
+#form_title{
+    margin-top: 15px;
+    padding: 1%;
+    background-color: black;
+    color: white;
+    text-align: center;
+
+}
+#sub_title{
+    border-bottom-color: black;
+    border-bottom: 4px solid grey;
+    border-bottom-width: 5px;
+    padding-top: 2%;
+    
+}
+#col {
+    padding: 1%;
+}
+
+input{
+    width: 100%;
+}
+select{
+    width: 100%;
+}
+
+#email_input{
+    width: 100%;
+}
+
+#msg_close_btn{
+    width: 25%;
+    text-decoration-color: black;
+    /* color: antiquewhite; */
+    /* background: white; */
+    background-color: rgb(2, 140, 4);
+}
+
+
+#flash_message{
+    color: green;
+    background: rgb(235, 230, 223);;
+    text-align: center;
+    width: 40%;
+    margin-left: 30%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 10px;
+    
+}
